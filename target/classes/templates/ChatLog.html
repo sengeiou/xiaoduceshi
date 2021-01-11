@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>对话日志</title>
+    <script type="text/javascript">
+        function getToken() {
+            var token = document.getElementById("tokens").value;
+            var type = document.getElementById("type").value;
+            var typeCount = document.getElementById("typeCount").value;
+            var row = document.getElementById("row").value;
+            var ajaxObj = new XMLHttpRequest();
+            console.log(token+":"+type+":"+typeCount+":"+row);
+            ajaxObj.open('get', '/chat/log?token='+token+'&row='+row+'&count='+typeCount+'&type='+type);
+            ajaxObj.send();
+            ajaxObj.onreadystatechange = function () {
+                if (ajaxObj.readyState === 4 && ajaxObj.status === 200) {
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <label>
+            <select id="type">
+                <option value="jiaoyou-audio">音箱</option>
+            </select>
+        </label>
+        <input type="text" id="tokens" th:hidden="true" th:default="${token}"/>
+        <input type="text" id="typeCount" class="countC" placeholder="请输入所要显示的类型的个数"/>
+        <input type="text" id="row" class="rowC" placeholder="请输入所要显示的行数"/>
+        <input type="button" id="search" class="click" value="点击搜索" onclick="getToken()"/>
+    </div>
+    <div>
+        <span th:text="${data}"></span>
+    </div>
+</body>
+</html>

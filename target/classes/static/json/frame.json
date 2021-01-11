@@ -1,0 +1,31 @@
+{
+  "type": "Container",
+  "flex-direction": "row",
+  "height": "50dp",
+  "items": [
+    {
+      "type": "Text",
+      "font-size": "28dp",
+      "margin-top": "5dp",
+      "font-style": "bold",
+      "margin-left": "30dp"
+    },
+    {
+      "type": "Frame",
+      "margin-left": "15dp",
+      "border-top-left-radius": "25dp",
+      "border-top-right-radius": "18dp",
+      "border-bottom-right-radius": "18dp",
+      "padding-vertical": "8dp",
+      "padding-horizontal": "15dp",
+      "background-color": "rgba(0,0,0,0.3)",
+      "items": [
+        {
+          "type": "Text",
+          "font-size": "22dp",
+          "color": "rgba(255,255,255,0.8)"
+        }
+      ]
+    }
+  ]
+}

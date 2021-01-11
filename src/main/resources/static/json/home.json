@@ -1,0 +1,69 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Image",
+        "position": "absolute",
+        "left": "0dp",
+        "top": "0dp",
+        "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/Loading.png",
+        "height": "100%",
+        "width": "100%"
+      },
+      {
+        "type": "Header",
+        "headerImage": "https://aliyun-hz1.chewrobot.com/xiaodu/image/5b2d0a11/lvzhou/15640330891628686.jpg",
+        "headerTitle": "交游天下"
+      },
+      {
+        "type": "Container",
+        "height": "100%",
+        "width": "100%",
+        "margin-top": "65dp",
+        "componentId": "whole",
+        "items": [
+          {
+            "type": "List",
+            "height": "100%",
+            "width": "100%",
+            "direction": "horizontal",
+            "items": [
+              {
+                "type": "Container",
+                "margin-left": "30dp",
+                "items": [
+                  {
+                    "type": "Image",
+                    "componentId": "${data.imageId}",
+                    "width": "260dp",
+                    "height": "260dp",
+                    "border-radius": "5%",
+                    "src": "${data.imageSrc}",
+                    "onClick": [
+                      {
+                        "type": "SendEvent",
+                        "componentId": "${data.imageId}"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Text",
+                    "font-size": "30dp",
+                    "letter-spacing": "3dp",
+                    "margin-top": "10dp",
+                    "text": "${data.imageName}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

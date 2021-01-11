@@ -1,0 +1,161 @@
+{
+  "type": "DPL",
+  "duration": 160000,
+  "version": "2.0",
+  "renderConfig": {
+    "viewport": {
+      "width": "960",
+      "height": "562"
+    }
+  },
+  "dataSource": {
+    "backgroundImg": "https://hw-gz25.heyqiwu.cn/duai/image/backend.jpg",
+    "headerTitle": "交游天下",
+    "audio": "123",
+    "contentList": []
+  },
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "styles": {
+          "flex": 1,
+          "justify-content":"space-between"
+        },
+        "items": [
+          {
+            "type": "Image",
+            "styles": {
+              "position": "absolute",
+              "left": "0dp",
+              "top": "0dp",
+              "scale-type": "centerCrop",
+              "height": "100%",
+              "width": "100%"
+            },
+            "props": {
+              "src": "${payload.backgroundImg}"
+            }
+          },
+          {
+            "type": "Header",
+            "props": {
+              "title": "${payload.headerTitle}",
+              "destroy": false
+            },
+            "events": {
+              "onBackTap": [{
+                "type": "SendEvent",
+                "componentId": "backTrigger"
+              }]
+            }
+          },
+          {
+            "type": "ScrollView",
+            "componentId": "udScroll",
+            "styles": {
+              "flex": 1
+            },
+            "props": {
+              "direction": "vertical"
+            },
+            "items": [
+              {
+                "type": "Container",
+                "dFor": "${payload.contentList}",
+                "componentId": "<%= $ITEM.itemSeqId %>",
+                "styles": {
+                  "padding": "20dp",
+                  "margin":"10dp",
+                  "flex-direction": "column",
+                  "border-radius": "16dp",
+                  "background-color": "rgba(1, 1, 1, .2)"
+                },
+                "items": [
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "align-items": "center",
+                      "flex-direction": "row"
+                    },
+                    "items": [
+                      {
+                        "type": "Image",
+                        "props": {
+                          "src": "<%= $ITEM.asideImg %>"
+                        },
+                        "styles": {
+                          "height": "60dp",
+                          "width": "60dp",
+                          "border-radius": "50dp",
+                          "scale-type": "centerCrop"
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.actor %>"
+                        },
+                        "styles": {
+                          "font-style":"bold",
+                          "font-size":"30dp",
+                          "margin-left": "20dp",
+                          "letter-spacing":"1dp"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Container",
+                    "items": [
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.text %>"
+                        },
+                        "styles": {
+                          "font-size": "28dp",
+                          "margin-top": "13dp"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Audio",
+            "props": {
+              "autoplay": "true",
+              "src": "${payload.audio}"
+            },
+            "events": {
+              "onEnd": [{
+                "type": "SendEvent",
+                "componentId": "audio"
+              }]
+            }
+          },
+          {
+            "type":"Footer",
+            "styles": {
+              "width":"100%"
+            },
+            "props": {
+              "hint":[
+                "我要送花",
+                "收藏",
+                "退出作品",
+                "重新开始"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

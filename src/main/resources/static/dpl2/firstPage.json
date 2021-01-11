@@ -1,0 +1,40 @@
+{
+  "type": "DPL",
+  "version": "2.0",
+  "renderConfig": {
+    "viewport": {
+      "width": "960",
+      "height": "562"
+    }
+  },
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Image",
+        "props": {
+          "src":"https://hw-gz25.heyqiwu.cn/duai/image/LoadNew.jpg",
+          "scaleType": "fitXY"
+        },
+        "styles": {
+          "position": "absolute",
+          "top": "0dp",
+          "left": "0dp",
+          "height": "100%",
+          "width": "100%"
+        },
+        "events":{
+          "onLoaded": [
+            {
+              "type": "SendEvent",
+              "componentId": "loadingPage",
+              "delay": 2000
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

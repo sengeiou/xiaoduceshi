@@ -1,0 +1,173 @@
+{
+  "type": "DPL",
+  "duration": 120000,
+  "version": "2.0",
+  "renderConfig": {
+    "viewport": {
+      "width": "960",
+      "height": "562"
+    }
+  },
+  "dataSource": {
+    "sideText": "0/0",
+    "headerTitle": "没有任何记录",
+    "contentList": []
+  },
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "styles": {
+          "flex": 1,
+          "justify-content":"space-between"
+        },
+        "items": [
+          {
+            "type": "Image",
+            "styles": {
+              "position": "absolute",
+              "left": "0dp",
+              "top": "0dp",
+              "scale-type": "centerCrop",
+              "height": "100%",
+              "width": "100%"
+            },
+            "props": {
+              "src": "https://hw-gz25.heyqiwu.cn/duai/image/backNew.jpg"
+            }
+          },
+          {
+            "type": "Header",
+            "props": {
+              "title": "${payload.headerTitle}",
+              "sideText": "${payload.sideText}",
+              "destroy": false
+            },
+            "events": {
+              "onBackTap": [{
+                "type": "SendEvent",
+                "componentId": "backTrigger"
+              }]
+            }
+          },
+          {
+            "type": "ScrollView",
+            "componentId": "udScroll",
+            "styles": {
+              "flex": 1,
+              "background": "transparent",
+              "margin-horizontal": "20dp"
+            },
+            "props": {
+              "direction": "vertical"
+            },
+            "items":[
+              {
+                "type": "Container",
+                "props": {
+                  "clickTimeout": 2000
+                },
+                "dFor": "${payload.contentList}",
+                "componentId": "<%= $ITEM.itemSeqId %>",
+                "styles": {
+                  "height": "120dp",
+                  "justify-content":"space-around",
+                  "flex-direction": "row",
+                  "align-items": "center"
+                },
+                "events": {
+                  "onClick": [{
+                    "type": "SendEvent",
+                    "componentId": "<%= $ITEM.id %>"
+                  }]
+                },
+                "items":[
+                  {
+                    "type": "Text",
+                    "props": {
+                      "text": "<%= $ITEM.num %>"
+                    },
+                    "styles": {
+                      "font-size": "40dp"
+                    }
+                  },
+                  {
+                    "type": "Image",
+                    "styles": {
+                      "width": "80dp",
+                      "height": "80dp",
+                      "border-radius": "10dp",
+                      "scale-type": "centerCrop"
+                    },
+                    "props": {
+                      "src": "<%= $ITEM.imageUrl %>"
+                    }
+                  },
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "width": "50%",
+                      "height": "75dp",
+                      "flex-direction": "column"
+                    },
+                    "items": [
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.workName %>"
+                        },
+                        "styles": {
+                          "font-size": "30dp"
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.workIntro %>"
+                        },
+                        "styles": {
+                          "font-size": "20dp",
+                          "text-overflow": "ellipsis",
+                          "max-lines": 1,
+                          "margin-top": "8dp"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Text",
+                    "props": {
+                      "text": "<%= $ITEM.time %>"
+                    },
+                    "styles": {
+                      "font-size": "25dp",
+                      "text-overflow": "ellipsis"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type":"Footer",
+            "styles": {
+              "width":"100%"
+            },
+            "props": {
+              "hint":[
+                "打开第一个",
+                "下一页",
+                "上一页",
+                "跳到第三页",
+                "返回"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Image",
+        "position": "absolute",
+        "top": "0dp",
+        "left": "0dp",
+        "height": "100%",
+        "width": "100%",
+        "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/backend.jpg"
+      },
+      {
+        "type": "Header",
+        "headerTitle": "收藏",
+        "hasBackIcon": false
+      },
+      {
+        "type": "Container",
+        "width": "100%",
+        "padding-bottom": "120dp",
+        "items": [
+          {
+            "type": "List",
+            "height": "100%",
+            "width": "100%",
+            "direction": "vertical",
+            "items": [
+              {
+                "type": "Container",
+                "height": "100dp",
+                "width": "100%",
+                "margin-bottom": "20dp",
+                "flex-direction": "row",
+                "componentId": "${data.botAccountId}",
+                "onclick": [
+                  {
+                    "type": "SendEvent",
+                    "componentId": "${data.botAccountId}"
+                  }
+                ],
+                "items": [
+                  {
+                    "type": "Text",
+                    "font-size": "40dp",
+                    "margin-left": "40dp",
+                    "margin-top": "7dp",
+                    "text": "${data.collectPageLeftNum}"
+                  },
+                  {
+                    "type": "Image",
+                    "width": "80dp",
+                    "height": "80dp",
+                    "border-radius": "10dp",
+                    "margin-left": "20dp",
+                    "src": "${data.bannerImgUrl}"
+                  },
+                  {
+                    "type": "Container",
+                    "height": "75dp",
+                    "width": "45%",
+                    "flex-direction": "column",
+                    "margin-left": "20dp",
+                    "items": [
+                      {
+                        "type": "Text",
+                        "font-size": "30dp",
+                        "text": "${data.name}"
+                      },
+                      {
+                        "type": "Text",
+                        "font-size": "20dp",
+                        "margin-top": "8dp",
+                        "text": "${data.intro}",
+                        "text-overflow": "ellipsis",
+                        "max-lines": 1
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Text",
+                    "margin-left": "200dp",
+                    "margin-top": "20dp",
+                    "font-size": "25dp",
+                    "text": "${data.authorName}"
+                  },
+                  {
+                    "type":"Frame",
+                    "position":"absolute",
+                    "margin-top":"90dp",
+                    "width":"100%",
+                    "border-color":"rgba(255,255,255,0.5)",
+                    "border-width":"1dp"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Container",
+        "position": "absolute",
+        "width": "100%",
+        "left": "0",
+        "bottom": "0",
+        "items": [
+          {
+            "type": "Footer",
+            "hints": [
+              "打开第一个","下一页","上一页","返回"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

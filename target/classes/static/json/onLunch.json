@@ -1,0 +1,104 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Pager",
+        "direction": "horizontal",
+        "height": "100%",
+        "width": "100%",
+        "initialPage":"0",
+        "componentId": "whole",
+        "onLoaded": [
+          {
+            "type": "AutoPage",
+            "componentId": "whole",
+            "durationInMillisecond": 3000
+          }
+        ],
+        "items": [
+          {
+            "type": "Image",
+            "componentId": "load",
+            "position": "absolute",
+            "top": "0dp",
+            "left": "0dp",
+            "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/Loading.png",
+            "height": "100%",
+            "width": "100%"
+          },
+          {
+            "type": "Container",
+            "height": "100%",
+            "width": "100%",
+            "componentId": "second",
+            "items": [
+              {
+                "type": "Image",
+                "position": "absolute",
+                "left": "0dp",
+                "top": "0dp",
+                "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/backend.jpg",
+                "height": "100%",
+                "width": "100%"
+              },
+              {
+                "type": "Header",
+                "headerImage": "https://aliyun-hz1.chewrobot.com/xiaodu/image/5b2d0a11/lvzhou/15640330891628686.jpg",
+                "headerTitle": "交游天下"
+              },
+              {
+                "type": "Container",
+                "height": "100%",
+                "width": "100%",
+                "margin-top": "65dp",
+                "items": [
+                  {
+                    "type": "List",
+                    "height": "100%",
+                    "width": "100%",
+                    "direction": "horizontal",
+                    "items": [
+                      {
+                        "type": "Container",
+                        "margin-left": "30dp",
+                        "items": [
+                          {
+                            "type": "Image",
+                            "componentId": "onLunchImageClick",
+                            "width": "220dp",
+                            "height": "220dp",
+                            "border-radius": "10dp",
+                            "src": "${data.imageSrc}",
+                            "scale-type": "fitXY",
+                            "onClick": [
+                              {
+                                "type": "SendEvent",
+                                "componentId": "${data.imageId}"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "Text",
+                            "font-size": "30dp",
+                            "letter-spacing": "3dp",
+                            "margin-top": "10dp",
+                            "text": "${data.imageName}"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

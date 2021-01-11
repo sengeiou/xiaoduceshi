@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CHAT LOG</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/layui.css}">
+</head>
+<body>
+<div class="mainbox">
+    <p></p>
+    <div class="subbox">
+        <p>显示全部日志:</p>
+        <input type="text" id="row" class="input" placeholder="请输入所要显示的行数,默认1000行"/>
+        <button type="button" class="layui-btn button " id="one" onclick="getAllToken()">点击搜索</button>
+    </div>
+    <div class="subbox">
+        <p>显示指定类型的日志:</p>
+        <label>
+            <select id="type" style="height: 60px; width: 80px;">
+                <option value="jiaoyou-audio">音箱</option>
+                <option value="jiaoyou-audio-adult">音箱-成人</option>
+                <option value="jiaoyou-audio-child">音箱-儿童</option>
+                <option value="XIAODU_">小度</option>
+                <option value="XIAOAI_">小爱</option>
+            </select>
+        </label>
+        <!--<input type="text" id="tokens" th:hidden="true" th:default="${token}"/>-->
+        <input type="text" id="typeCount" class="input" placeholder="请输入所要显示的类型的个数,默认100个"/>
+        <!--<input type="button" id="search" class="click" value="点击搜索" onclick="getToken()"/>-->
+        <button type="button" class="layui-btn button " id="two" onclick="getToken()">点击搜索</button>
+    </div>
+</div>
+</body>
+<style>
+    .mainbox{
+        width: 900px;
+        height: 200px;
+        margin:  100px auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .subbox{
+        width: 900px;
+        height: 200px;
+        margin:  100px auto;
+        display: flex;
+        flex-direction: row;
+    }
+    .input{
+        width: 500px;
+    }
+    button{
+        flex: 1;
+    }
+
+</style>
+<script th:inline="javascript">
+    var token = [[${token}]];
+    function getToken() {
+        var type = document.getElementById("type").value;
+        var typeCount = document.getElementById("typeCount").value;
+        console.log(token+":"+type+":"+typeCount);
+        window.location.href = "http://didi-gz3.jiaoyou365.com:8188/chat/log?token=" +token+'&count='+typeCount+'&type='+type;
+    }
+
+    function getAllToken() {
+        var row = document.getElementById("row").value;
+        window.location.href = "http://didi-gz3.jiaoyou365.com:8188/chat/log?token=" +token+'&row='+row;
+    }
+</script>
+</html>

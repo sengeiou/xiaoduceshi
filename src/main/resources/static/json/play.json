@@ -1,0 +1,74 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Image",
+        "position": "absolute",
+        "top": "0dp",
+        "left": "0dp",
+        "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/backend.jpg",
+        "height": "100%",
+        "width": "100%"
+      },
+      {
+        "type": "Header",
+        "headerTitle": "交游天下",
+        "hasBackIcon": false
+      },
+      {
+        "type": "Container",
+        "height": "100%",
+        "width": "100%",
+        "componentId": "whole",
+        "items": [
+          {
+            "type": "Container",
+            "padding":"35dp",
+            "position": "absolute",
+            "bottom": "120dp",
+            "items": [
+              {
+                "type": "Text",
+                "componentId": "text",
+                "font-size": "28dp",
+                "font-style": "normal"
+              }
+            ]
+          },
+          {
+            "type": "Audio",
+            "componentId": "audioCom",
+            "looping": "false",
+            "autoplay": "true",
+            "onEnd": [
+              {
+                "type": "SendEvent",
+                "componentId": "audio"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Container",
+        "position": "absolute",
+        "width": "100%",
+        "left": "0",
+        "bottom": "0",
+        "items": [
+          {
+            "type": "Footer",
+            "hints": [
+              "我要送花","收藏","回到首页","返回"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

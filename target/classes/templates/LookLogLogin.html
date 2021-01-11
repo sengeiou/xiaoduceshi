@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>查看日志登录</title>
+    <script type="text/javascript">
+        function getToken() {
+            var phoneNum = document.getElementById("phoneNum").value;
+            var captcha = document.getElementById("getCaptcha").value;
+            // alert("phone:"+phoneNum+",captcha:"+captcha);
+            var ajaxObj = new XMLHttpRequest();
+            //var uri = '/xiaodu/security/token?phoneNumber='+phoneNum+'&captcha='+captcha;
+            ajaxObj.open('get', '/chat/login/check?userName='+phoneNum+'&passwd='+captcha);
+            ajaxObj.send();
+            ajaxObj.onreadystatechange = function () {
+                if (ajaxObj.readyState === 4 && ajaxObj.status === 200) {
+                    if (ajaxObj.responseText.length === 8) {
+                        window.location.href = "http://didi-gz3.jiaoyou365.com:8188/chat/choose?token=" + ajaxObj.responseText;
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #eee;
+            margin:0;
+        }
+        .container {
+            width: 80%;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .whole {
+            text-align: center;
+            padding: 10px;
+            margin: 0 auto;
+        }
+        .title {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 26px;
+        }
+        .input {
+            margin-bottom: -1px;
+            border-radius: 4px;
+            height: auto;
+            width: 88%;
+            padding: 10px;
+            font-size: 16px;
+            color: #555;
+            background-color: #fff;
+            border:1px solid #ccc;
+        }
+        .click {
+            display: block;
+            font-size: 16px;
+            border-radius: 4px;
+            color: #fff;
+            background-color: #337ab7;
+            padding: 6px 12px;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            border: 1px solid transparent;
+            margin:10px auto;
+            width: 96%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="whole" id="captchaView">
+        <h2 class="title">CHAT日志</h2>
+        <input type="text" id="phoneNum" name="phone" class="input" placeholder="请输入用户名"/>
+    </div>
+    <div class="whole" id="tokenView">
+        <input type="password" id="getCaptcha" name="phone" class="input" placeholder="请输入密码"/>
+        <input type="button" id="toLoad" name="to_load" class="click" value="点击登录" onclick="getToken()"/>
+    </div>
+</div>
+</body>
+</html>

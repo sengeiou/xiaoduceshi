@@ -1,0 +1,59 @@
+{
+  "type":"DPL",
+  "version":"1.0",
+  "resources":[
+
+  ],
+  "styles":{
+
+  },
+  "dataSource": {
+
+  },
+  "layouts":{
+
+  },
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Image",
+        "position": "absolute",
+        "top": "0dp",
+        "left": "0dp",
+        "src": "https://aliyun-hz1.chewrobot.com/xiaodu/image/5b2d0a11/lvzhou/15640330891628686.jpg",
+        "height": "100%",
+        "width": "100%"
+      },
+      {
+        "type": "Container",
+        "width": "100%",
+        "height": "100%",
+        "items": [
+          {
+
+          }
+        ]
+      },
+      {
+        "type": "Text",
+        "text": "欢迎来到文艺大厅",
+        "line-height": "5dp",
+        "letter-spacing": "2dp",
+        "padding-left": "5dp",
+        "margin-left": "5dp"
+      },
+      {
+        "type": "Image",
+        "height": "25dp",
+        "width": "25dp",
+        "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/cat.jpg",
+        "scale-type": "fixCenter",
+        "border-bottom-right-radius": "2dp",
+        "opacity": 0.5
+      }
+    ]
+  }
+}

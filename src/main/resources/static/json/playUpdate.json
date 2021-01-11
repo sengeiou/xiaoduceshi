@@ -1,0 +1,47 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "height": "100%",
+        "width": "100%",
+        "componentId": "whole",
+        "items": [
+          {
+            "type": "Container",
+            "padding":"35dp",
+            "position": "absolute",
+            "bottom": "120dp",
+            "items": [
+              {
+                "type": "Text",
+                "text": "fff",
+                "componentId": "text",
+                "font-size": "28dp",
+                "font-style": "normal"
+              }
+            ]
+          },
+          {
+            "type": "Audio",
+            "componentId": "audioCom",
+            "looping": "false",
+            "autoplay": "true",
+            "src": "ggg",
+            "onEnd": [
+              {
+                "type": "SendEvent",
+                "componentId": "audio"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

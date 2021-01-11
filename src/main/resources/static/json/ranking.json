@@ -1,0 +1,86 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Image",
+        "position": "absolute",
+        "top": "0dp",
+        "left": "0dp",
+        "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/backend.jpg",
+        "height": "100%",
+        "width": "100%"
+      },
+      {
+        "type": "Header",
+        "headerTitle": "排行榜",
+        "hasBackIcon": false
+      },
+      {
+        "type": "Container",
+        "height": "100%",
+        "width": "100%",
+        "componentId": "whole",
+        "margin-top": "65dp",
+        "items": [
+          {
+            "type": "List",
+            "height": "100%",
+            "width": "100%",
+            "direction": "horizontal",
+            "componentId": "scrollToIndex",
+            "items": [
+              {
+                "type": "Container",
+                "align-items": "center",
+                "margin-left": "15dp",
+                "items": [
+                  {
+                    "type": "Image",
+                    "width": "220dp",
+                    "height": "220dp",
+                    "componentId": "${data.imageId}",
+                    "scale-type": "fitXY",
+                    "border-radius": "10dp",
+                    "src": "${data.imageSrc}",
+                    "onClick": [
+                      {
+                        "type": "SendEvent",
+                        "componentId": "${data.imageId}"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Text",
+                    "font-size": "30dp",
+                    "margin-top": "10dp",
+                    "text": "${data.imageName}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Container",
+        "position": "absolute",
+        "width": "100%",
+        "left": "0",
+        "bottom": "0",
+        "items": [
+          {
+            "type": "Footer",
+            "hints": [
+              "向右滑","向左滑","打开第一个","返回"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,358 @@
+{
+  "type": "DPL",
+  "duration": 240000,
+  "version": "2.0",
+  "renderConfig": {
+    "viewport": {
+      "width": "960",
+      "height": "562"
+    }
+  },
+  "dataSource": {
+    "contentList": []
+  },
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "styles": {
+          "flex": 1,
+          "justify-content":"space-between"
+        },
+        "items": [
+          {
+            "type": "Image",
+            "styles": {
+              "position": "absolute",
+              "left": "0dp",
+              "top": "0dp",
+              "scale-type": "centerCrop",
+              "height": "100%",
+              "width": "100%"
+            },
+            "props": {
+              "src": "https://hw-gz25.heyqiwu.cn/duai/image/headImg.jpg"
+            }
+          },
+          {
+            "type": "Container",
+            "styles": {
+              "height": "160dp"
+            }
+          },
+          {
+            "type": "ScrollView",
+            "componentId": "udScroll",
+            "styles": {
+              "flex": 1,
+              "background": "transparent",
+              "margin-horizontal": "20dp"
+            },
+            "props": {
+              "direction": "vertical"
+            },
+            "events": {
+              "onScrollToEnd": [{
+                "type": "SendEvent",
+                "componentId": "homePageUpdate"
+              }]
+            },
+            "items":[
+              {
+                "type": "Container",
+                "dFor": "${payload.contentList}",
+                "componentId": "<%= $ITEM.itemSeqId %>",
+                "styles": {
+                  "flex": 1,
+                  "justify-content":"space-between",
+                  "flex-direction": "row",
+                  "align-items": "center",
+                  "margin-bottom": "20dp"
+                },
+                "items":[
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "flex": 1,
+                      "justify-content":"space-between"
+                    },
+                    "items": [
+                      {
+                        "type": "Image",
+                        "styles": {
+                          "height": "200dp",
+                          "width": "200dp",
+                          "border-radius": "22dp",
+                          "scale-type": "centerCrop",
+                          "margin-left": "7dp",
+                          "margin-top": "7dp"
+                        },
+                        "props": {
+                          "src": "<%= $ITEM.img1 %>"
+                        },
+                        "events": {
+                          "onClick": [{
+                            "type": "SendEvent",
+                            "componentId": "<%= $ITEM.imageId1 %>"
+                          }]
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.imageName1 %>"
+                        },
+                        "styles": {
+                          "font-size": "24dp",
+                          "margin-left": "7dp"
+                        }
+                      },
+                      {
+                        "type": "Container",
+                        "styles": {
+                          "height": "35dp",
+                          "width": "35dp",
+                          "border-radius": "20dp",
+                          "align-items": "center",
+                          "justify-content": "center",
+                          "background-color": "#000080",
+                          "opacity": "0.8",
+                          "position": "absolute"
+                        },
+                        "items": [
+                          {
+                            "type": "Text",
+                            "props": {
+                              "text": "<%= $ITEM.num1 %>"
+                            },
+                            "styles": {
+                              "font-size": "22dp"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "flex": 1,
+                      "justify-content":"space-between"
+                    },
+                    "items": [
+                      {
+                        "type": "Image",
+                        "styles": {
+                          "height": "200dp",
+                          "width": "200dp",
+                          "border-radius": "22dp",
+                          "scale-type": "centerCrop",
+                          "margin-left": "7dp",
+                          "margin-top": "7dp"
+                        },
+                        "props": {
+                          "src": "<%= $ITEM.img2 %>"
+                        },
+                        "events": {
+                          "onClick": [{
+                            "type": "SendEvent",
+                            "componentId": "<%= $ITEM.imageId2 %>"
+                          }]
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.imageName2 %>"
+                        },
+                        "styles": {
+                          "font-size": "24dp",
+                          "margin-left": "7dp"
+                        }
+                      },
+                      {
+                        "type": "Container",
+                        "dWhen": "<%= $ITEM.num2 != 0 %>",
+                        "styles": {
+                          "height": "35dp",
+                          "width": "35dp",
+                          "border-radius": "20dp",
+                          "align-items": "center",
+                          "justify-content": "center",
+                          "background-color": "#000080",
+                          "opacity": "0.8",
+                          "position": "absolute"
+                        },
+                        "items": [
+                          {
+                            "type": "Text",
+                            "props": {
+                              "text": "<%= $ITEM.num2 %>"
+                            },
+                            "styles": {
+                              "font-size": "22dp"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "flex": 1,
+                      "justify-content":"space-between"
+                    },
+                    "items": [
+                      {
+                        "type": "Image",
+                        "styles": {
+                          "height": "200dp",
+                          "width": "200dp",
+                          "border-radius": "22dp",
+                          "scale-type": "centerCrop",
+                          "margin-left": "7dp",
+                          "margin-top": "7dp"
+                        },
+                        "props": {
+                          "src": "<%= $ITEM.img3 %>"
+                        },
+                        "events": {
+                          "onClick": [{
+                            "type": "SendEvent",
+                            "componentId": "<%= $ITEM.imageId3 %>"
+                          }]
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.imageName3 %>"
+                        },
+                        "styles": {
+                          "font-size": "24dp",
+                          "margin-left": "7dp"
+                        }
+                      },
+                      {
+                        "type": "Container",
+                        "dWhen": "<%= $ITEM.num3 != 0 %>",
+                        "styles": {
+                          "height": "35dp",
+                          "width": "35dp",
+                          "border-radius": "20dp",
+                          "align-items": "center",
+                          "justify-content": "center",
+                          "background-color": "#000080",
+                          "opacity": "0.8",
+                          "position": "absolute"
+                        },
+                        "items": [
+                          {
+                            "type": "Text",
+                            "props": {
+                              "text": "<%= $ITEM.num3 %>"
+                            },
+                            "styles": {
+                              "font-size": "22dp"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "flex": 1,
+                      "justify-content":"space-between"
+                    },
+                    "items": [
+                      {
+                        "type": "Image",
+                        "styles": {
+                          "height": "200dp",
+                          "width": "200dp",
+                          "border-radius": "22dp",
+                          "scale-type": "centerCrop",
+                          "margin-left": "7dp",
+                          "margin-top": "7dp"
+                        },
+                        "props": {
+                          "src": "<%= $ITEM.img4 %>"
+                        },
+                        "events": {
+                          "onClick": [{
+                            "type": "SendEvent",
+                            "componentId": "<%= $ITEM.imageId4 %>"
+                          }]
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.imageName4 %>"
+                        },
+                        "styles": {
+                          "font-size": "24dp",
+                          "margin-left": "7dp"
+                        }
+                      },
+                      {
+                        "type": "Container",
+                        "dWhen": "<%= $ITEM.num4 != 0 %>",
+                        "styles": {
+                          "height": "35dp",
+                          "width": "35dp",
+                          "border-radius": "20dp",
+                          "align-items": "center",
+                          "justify-content": "center",
+                          "background-color": "#000080",
+                          "opacity": "0.8",
+                          "position": "absolute"
+                        },
+                        "items": [
+                          {
+                            "type": "Text",
+                            "props": {
+                              "text": "<%= $ITEM.num4 %>"
+                            },
+                            "styles": {
+                              "font-size": "22dp"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type":"Footer",
+            "styles": {
+              "width":"100%"
+            },
+            "props": {
+              "hint":[
+                "推荐作品",
+                "打开排行榜",
+                "打开分类",
+                "刷新",
+                "打开第一个",
+                "打开历史记录",
+                "打开收藏",
+                "登陆",
+                "退出"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

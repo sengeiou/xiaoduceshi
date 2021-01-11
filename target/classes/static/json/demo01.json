@@ -1,0 +1,112 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "width": "100%",
+        "height": "100%",
+        "componentId": "whole",
+        "onLoaded": [
+          {
+            "type": "SendEvent",
+            "componentId": "whole"
+          }
+        ],
+        "items": [
+          {
+            "type": "Audio",
+            "componentId": "audio",
+            "looping": "false",
+            "autoplay": "false",
+            "onEnd": [
+              {
+                "type": "ControlMedia",
+                "componentId": "audio",
+                "command": "end"
+              }
+            ]
+          },
+          {
+            "type": "Image",
+            "position": "absolute",
+            "top": "0dp",
+            "left": "0dp",
+            "height": "100%",
+            "width": "100%",
+            "src": "https://duerstatic.bj.bcebos.com/dbp-image%2FDPLMaterial%2Fimage2019-6-24_19-8-392.jpg"
+          },
+          {
+            "type": "Container",
+            "width": "100%",
+            "height": "100%",
+            "items": [
+              {
+                "type": "Header",
+                "headerImage": "https://aliyun-hz1.chewrobot.com/xiaodu/image/5b2d0a11/lvzhou/15640330891628686.jpg"
+              },
+              {
+                "type": "Container",
+                "flex-direction": "row",
+                "width": "100%",
+                "height": "100%",
+                "items": [
+                  {
+                    "type": "Container",
+                    "width": "65%",
+                    "height": "100%",
+                    "items": [
+                      {
+                        "type": "Text",
+                        "text": "互动天地",
+                        "color": "blue",
+                        "font-size": "35dp",
+                        "letter-spacing": "30dp",
+                        "margin-top": "30dp",
+                        "margin-left": "10%"
+                      },
+                      {
+                        "type": "Text",
+                        "text": "有声互动小说",
+                        "font-size": "25dp",
+                        "letter-spacing": "30dp",
+                        "margin-top": "20dp",
+                        "margin-left": "10%"
+                      },
+                      {
+                        "type": "Text",
+                        "text": "欢迎来到互动天地",
+                        "font-size": "30dp",
+                        "letter-spacing": "30dp",
+                        "margin-top": "20dp",
+                        "margin-left": "10%"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Image",
+                    "height": "400dp",
+                    "width": "280dp",
+                    "margin-left": "10dp",
+                    "margin-top": "30dp",
+                    "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/cat.jpg"
+                  }
+                ]
+              },
+              {
+                "type": "Footer",
+                "hints": [
+                  "有什么好玩的码？","推荐作品","我要玩绿洲"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

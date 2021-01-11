@@ -1,0 +1,38 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "margin-left": "120dp",
+        "align-items": "center",
+        "onClick": [
+          {
+            "type": "SendEvent"
+          }
+        ],
+        "items": [
+          {
+            "type": "Image",
+            "height": "60dp",
+            "width": "60dp",
+            "componentId": "collectImage",
+            "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/share.png",
+            "scale-type": "fitCenter"
+          },
+          {
+            "type": "Text",
+            "componentId": "collectText",
+            "margin-top": "10dp",
+            "text": "收藏",
+            "font-size": "20dp"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Image",
+        "position": "absolute",
+        "top": "0dp",
+        "left": "0dp",
+        "src": "https://duerstatic.bj.bcebos.com/dbp-image%2FDPLMaterial%2Fimage2019-6-24_19-0-24_bg.jpg",
+        "height": "100%",
+        "width": "100%"
+      },
+      {
+        "type": "Container",
+        "width": "100%",
+        "height": "100%",
+        "flex-direction": "row",
+        "items": [
+          {
+            "type": "Image",
+            "src": "https://duerstatic.bj.bcebos.com/dbp-image%2FDPLMaterial%2Fimage2019-6-24_19-0-24.png",
+            "width": "200dp",
+            "height": "400dp",
+            "margin-left":"40dp",
+            "componentId": "demo_image_compid",
+            "onClick":[
+              {
+                "type": "Animation",
+                "componentId": "demo_image_compid",
+                "from": 0.5,
+                "to": 2,
+                "easing": "ease-in",
+                "attribute": "scaleX",
+                "duration": 4000,
+                "repeatCount": "3",
+                "repeatMode": "reverse"
+              },
+
+              {
+                "type": "Animation",
+                "componentId": "demo_image_compid",
+                "from": 1,
+                "to": 1.5,
+                "easing": "ease-in",
+                "attribute": "scaleY",
+                "duration": 4000,
+                "repeatCount": "3",
+                "repeatMode": "reverse"
+              },
+              {
+                "type": "SetState",
+                "componentId": "demo_image_compid",
+                "state": "opacity",
+                "value": 0.4
+              }
+            ]
+          },
+          {
+            "type": "Image",
+            "src": "https://duerstatic.bj.bcebos.com/dbp-image%2FDPLMaterial%2Fimage2019-6-24_19-0-24.png",
+            "width": "200dp",
+            "height": "400dp",
+            "margin-left":"40dp",
+            "componentId": "demo_image",
+            "onClick":[
+              {
+                "type": "Animation",
+                "componentId": "demo_image",
+                "from": 1,
+                "to": 0.6,
+                "easing": "ease-out",
+                "attribute": "scaleX",
+                "duration": 3000,
+                "repeatCount": "1"
+              },
+              {
+                "type": "Animation",
+                "componentId": "demo_image",
+                "from": 1,
+                "to": 0.6,
+                "easing": "ease-out",
+                "attribute": "scaleY",
+                "duration": 3000,
+                "repeatCount": "1"
+              }
+            ]
+          },
+          {
+            "type": "Image",
+            "src": "https://duerstatic.bj.bcebos.com/dbp-image%2FDPLMaterial%2Fimage2019-6-24_19-0-24.png",
+            "width": "200dp",
+            "height": "400dp",
+            "margin-left":"40dp",
+            "componentId": "demo",
+            "onClick":[
+              {
+                "type": "Animation",
+                "componentId": "demo",
+                "from": 0.7,
+                "to": 1.5,
+                "easing": "ease-out",
+                "attribute": "scaleY",
+                "duration": 3000,
+                "repeatCount": "4"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

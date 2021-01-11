@@ -1,0 +1,158 @@
+{
+  "type": "DPL",
+  "duration": 240000,
+  "version": "2.0",
+  "renderConfig": {
+    "viewport": {
+      "width": "960",
+      "height": "562"
+    }
+  },
+  "dataSource": {
+    "audio": "",
+    "headerTitle": "精品推荐",
+    "contentList": []
+  },
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "styles": {
+          "flex": 1,
+          "justify-content":"space-between"
+        },
+        "items": [
+          {
+            "type": "Image",
+            "styles": {
+              "position": "absolute",
+              "left": "0dp",
+              "top": "0dp",
+              "scale-type": "centerCrop",
+              "height": "100%",
+              "width": "100%"
+            },
+            "props": {
+              "src": "https://hw-gz25.heyqiwu.cn/duai/image/backNew.jpg"
+            }
+          },
+          {
+            "type": "Header",
+            "props": {
+              "title": "${payload.headerTitle}",
+              "destroy": false
+            },
+            "events": {
+              "onBackTap": [{
+                "type": "SendEvent",
+                "componentId": "backTrigger"
+              }]
+            }
+          },
+          {
+            "type": "Container",
+            "styles": {
+              "flex": 1,
+              "justify-content":"space-around",
+              "flex-direction": "row",
+              "align-items": "center"
+            },
+            "items":[
+              {
+                "type": "Container",
+                "dFor": "${payload.contentList}",
+                "styles": {
+                  "justify-content":"space-between"
+                },
+                "items": [
+                  {
+                    "type": "Image",
+                    "styles": {
+                      "height": "220dp",
+                      "width": "220dp",
+                      "border-radius": "22dp",
+                      "scale-type": "centerCrop",
+                      "margin-left": "7dp",
+                      "margin-top": "7dp"
+                    },
+                    "props": {
+                      "src": "<%= $ITEM.img1 %>"
+                    },
+                    "events": {
+                      "onClick": [{
+                        "type": "SendEvent",
+                        "componentId": "<%= $ITEM.imageId1 %>"
+                      }]
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "props": {
+                      "text": "<%= $ITEM.imageName1 %>"
+                    },
+                    "styles": {
+                      "font-size": "24dp",
+                      "margin-left": "7dp"
+                    }
+                  },
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "height": "35dp",
+                      "width": "35dp",
+                      "border-radius": "20dp",
+                      "align-items": "center",
+                      "justify-content": "center",
+                      "background-color": "#000080",
+                      "opacity": "0.8",
+                      "position": "absolute"
+                    },
+                    "items": [
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.num1 %>"
+                        },
+                        "styles": {
+                          "font-size": "22dp"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Audio",
+            "props": {
+              "autoplay": "true",
+              "src": "${payload.audio}"
+            },
+            "events": {
+              "onEnd": [{
+                "type": "SendEvent",
+                "componentId": "audio"
+              }]
+            }
+          },
+          {
+            "type":"Footer",
+            "styles": {
+              "width":"100%"
+            },
+            "props": {
+              "hint":[
+                "打开第一个",
+                "返回"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

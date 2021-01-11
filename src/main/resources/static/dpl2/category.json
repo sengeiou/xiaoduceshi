@@ -1,0 +1,384 @@
+{
+  "type": "DPL",
+  "duration": 90000,
+  "version": "2.0",
+  "renderConfig": {
+    "viewport": {
+      "width": "960",
+      "height": "562"
+    }
+  },
+  "dataSource": {
+    "contentList": [
+      {
+        "num1": 1,
+        "imageId1": "categ古风",
+        "imageName1": "古风",
+        "img1": "https://hw-gz25.heyqiwu.cn/duai/image/gufeng.png",
+        "num2": 2,
+        "imageId2": "categ言情",
+        "imageName2": "言情",
+        "img2": "https://hw-gz25.heyqiwu.cn/duai/image/yanqing.png",
+        "num3": 3,
+        "imageId3": "categ灾难",
+        "imageName3": "灾难",
+        "img3": "https://hw-gz25.heyqiwu.cn/duai/image/zainan.png",
+        "num4": 4,
+        "imageId4": "categ冒险",
+        "imageName4": "冒险",
+        "img4": "https://hw-gz25.heyqiwu.cn/duai/image/maoxian.png",
+        "itemSeqId": "1"
+      },
+      {
+        "num1": 5,
+        "imageId1": "categ武侠",
+        "imageName1": "武侠",
+        "img1": "https://hw-gz25.heyqiwu.cn/duai/image/wuxia.png",
+        "num2": 6,
+        "imageId2": "categ穿越",
+        "imageName2": "穿越",
+        "img2": "https://hw-gz25.heyqiwu.cn/duai/image/chuanyue.png",
+        "num3": 7,
+        "imageId3": "categ答题",
+        "imageName3": "答题",
+        "img3": "https://hw-gz25.heyqiwu.cn/duai/image/dati.png",
+        "num4": 8,
+        "imageId4": "categ经营",
+        "imageName4": "经营",
+        "img4": "https://hw-gz25.heyqiwu.cn/duai/image/jingying.png",
+        "itemSeqId": "2"
+      }
+    ]
+  },
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "styles": {
+          "flex": 1,
+          "justify-content":"space-between"
+        },
+        "items": [
+          {
+            "type": "Image",
+            "styles": {
+              "position": "absolute",
+              "left": "0dp",
+              "top": "0dp",
+              "scale-type": "centerCrop",
+              "height": "100%",
+              "width": "100%"
+            },
+            "props": {
+              "src": "https://hw-gz25.heyqiwu.cn/duai/image/headImg.jpg"
+            }
+          },
+          {
+            "type": "Container",
+            "styles": {
+              "height": "160dp"
+            }
+          },
+          {
+            "type": "ScrollView",
+            "componentId": "udScroll",
+            "styles": {
+              "flex": 1,
+              "background": "transparent",
+              "margin-horizontal": "20dp"
+            },
+            "props": {
+              "direction": "vertical"
+            },
+            "items":[
+              {
+                "type": "Container",
+                "dFor": "${payload.contentList}",
+                "componentId": "<%= $ITEM.itemSeqId %>",
+                "styles": {
+                  "flex": 1,
+                  "justify-content":"space-between",
+                  "flex-direction": "row",
+                  "align-items": "center",
+                  "margin-bottom": "20dp"
+                },
+                "items":[
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "flex": 1,
+                      "justify-content":"space-between"
+                    },
+                    "items": [
+                      {
+                        "type": "Image",
+                        "styles": {
+                          "height": "180dp",
+                          "width": "180dp",
+                          "border-radius": "22dp",
+                          "scale-type": "centerCrop",
+                          "margin-left": "7dp",
+                          "margin-top": "7dp"
+                        },
+                        "props": {
+                          "src": "<%= $ITEM.img1 %>"
+                        },
+                        "events": {
+                          "onClick": [{
+                            "type": "SendEvent",
+                            "componentId": "<%= $ITEM.imageId1 %>"
+                          }]
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.imageName1 %>"
+                        },
+                        "styles": {
+                          "font-size": "24dp",
+                          "margin-left": "7dp"
+                        }
+                      },
+                      {
+                        "type": "Container",
+                        "styles": {
+                          "height": "35dp",
+                          "width": "35dp",
+                          "border-radius": "20dp",
+                          "align-items": "center",
+                          "justify-content": "center",
+                          "background-color": "#000080",
+                          "opacity": "0.8",
+                          "position": "absolute"
+                        },
+                        "items": [
+                          {
+                            "type": "Text",
+                            "props": {
+                              "text": "<%= $ITEM.num1 %>"
+                            },
+                            "styles": {
+                              "font-size": "22dp"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "flex": 1,
+                      "justify-content":"space-between"
+                    },
+                    "items": [
+                      {
+                        "type": "Image",
+                        "styles": {
+                          "height": "180dp",
+                          "width": "180dp",
+                          "border-radius": "22dp",
+                          "scale-type": "centerCrop",
+                          "margin-left": "7dp",
+                          "margin-top": "7dp"
+                        },
+                        "props": {
+                          "src": "<%= $ITEM.img2 %>"
+                        },
+                        "events": {
+                          "onClick": [{
+                            "type": "SendEvent",
+                            "componentId": "<%= $ITEM.imageId2 %>"
+                          }]
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.imageName2 %>"
+                        },
+                        "styles": {
+                          "font-size": "24dp",
+                          "margin-left": "7dp"
+                        }
+                      },
+                      {
+                        "type": "Container",
+                        "dWhen": "<%= $ITEM.num2 != 0 %>",
+                        "styles": {
+                          "height": "35dp",
+                          "width": "35dp",
+                          "border-radius": "20dp",
+                          "align-items": "center",
+                          "justify-content": "center",
+                          "background-color": "#000080",
+                          "opacity": "0.8",
+                          "position": "absolute"
+                        },
+                        "items": [
+                          {
+                            "type": "Text",
+                            "props": {
+                              "text": "<%= $ITEM.num2 %>"
+                            },
+                            "styles": {
+                              "font-size": "22dp"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "flex": 1,
+                      "justify-content":"space-between"
+                    },
+                    "items": [
+                      {
+                        "type": "Image",
+                        "styles": {
+                          "height": "180dp",
+                          "width": "180dp",
+                          "border-radius": "22dp",
+                          "scale-type": "centerCrop",
+                          "margin-left": "7dp",
+                          "margin-top": "7dp"
+                        },
+                        "props": {
+                          "src": "<%= $ITEM.img3 %>"
+                        },
+                        "events": {
+                          "onClick": [{
+                            "type": "SendEvent",
+                            "componentId": "<%= $ITEM.imageId3 %>"
+                          }]
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.imageName3 %>"
+                        },
+                        "styles": {
+                          "font-size": "24dp",
+                          "margin-left": "7dp"
+                        }
+                      },
+                      {
+                        "type": "Container",
+                        "dWhen": "<%= $ITEM.num3 != 0 %>",
+                        "styles": {
+                          "height": "35dp",
+                          "width": "35dp",
+                          "border-radius": "20dp",
+                          "align-items": "center",
+                          "justify-content": "center",
+                          "background-color": "#000080",
+                          "opacity": "0.8",
+                          "position": "absolute"
+                        },
+                        "items": [
+                          {
+                            "type": "Text",
+                            "props": {
+                              "text": "<%= $ITEM.num3 %>"
+                            },
+                            "styles": {
+                              "font-size": "22dp"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "flex": 1,
+                      "justify-content":"space-between"
+                    },
+                    "items": [
+                      {
+                        "type": "Image",
+                        "styles": {
+                          "height": "180dp",
+                          "width": "180dp",
+                          "border-radius": "22dp",
+                          "scale-type": "centerCrop",
+                          "margin-left": "7dp",
+                          "margin-top": "7dp"
+                        },
+                        "props": {
+                          "src": "<%= $ITEM.img4 %>"
+                        },
+                        "events": {
+                          "onClick": [{
+                            "type": "SendEvent",
+                            "componentId": "<%= $ITEM.imageId4 %>"
+                          }]
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "<%= $ITEM.imageName4 %>"
+                        },
+                        "styles": {
+                          "font-size": "24dp",
+                          "margin-left": "7dp"
+                        }
+                      },
+                      {
+                        "type": "Container",
+                        "dWhen": "<%= $ITEM.num4 != 0 %>",
+                        "styles": {
+                          "height": "35dp",
+                          "width": "35dp",
+                          "border-radius": "20dp",
+                          "align-items": "center",
+                          "justify-content": "center",
+                          "background-color": "#000080",
+                          "opacity": "0.8",
+                          "position": "absolute"
+                        },
+                        "items": [
+                          {
+                            "type": "Text",
+                            "props": {
+                              "text": "<%= $ITEM.num4 %>"
+                            },
+                            "styles": {
+                              "font-size": "22dp"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type":"Footer",
+            "styles": {
+              "width":"100%"
+            },
+            "props": {
+              "hint":[
+                "打开第一个",
+                "返回"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

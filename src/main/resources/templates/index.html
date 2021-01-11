@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>音响测试</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/layui.css}">
+</head>
+<body>
+    <div class="mainbox">
+            <button type="button" class="layui-btn button " id="one">小度1号 (gz3)</button>
+            <button type="button" class="layui-btn button " id="four">小度2号 (gz3)</button>
+            <button type="button" class="layui-btn button " id="tow">小爱1号（gz3）</button>
+            <button type="button" class="layui-btn button " id="therr">小爱2号（gz3）</button>
+            <button type="button" class="layui-btn button " id="five">对话日志</button>
+    </div>
+</body>
+<style>
+    .mainbox{
+        width: 300px;
+        height: 200px;
+        margin:  100px auto;
+        display: flex;
+        flex-direction: row;
+    }
+    button{
+        flex: 1;
+    }
+
+</style>
+<script>
+
+   var one = document.getElementById("one");
+   var tow = document.getElementById("tow");
+   var therr = document.getElementById("therr");
+   var four = document.getElementById("four");
+   var five = document.getElementById("five");
+
+        one.onclick = function(){
+          console.log("点击事件");
+          window.open("./Log1.html","_blank");      
+          
+        };
+        tow.onclick = function(){
+          console.log("点击事件");
+          window.open("./Log2.html","_blank");      
+          
+        };
+        therr.onclick = function(){
+          console.log("点击事件");
+          window.open("./Log3.html","_blank");      
+          
+        };
+        four.onclick = function(){
+            console.log("点击事件");
+            window.open("./Log4.html","_blank");
+        };
+        five.onclick = function () {
+            console.log("点击事件");
+            window.open("./Log5.html","_blank");
+        }
+</script>
+</html>

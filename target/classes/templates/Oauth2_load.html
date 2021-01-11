@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>登录</title>
+</head>
+<body>
+<div id="main">
+    <div class="header">
+        <img src="https://didi-gz5.jiaoyou365.com/duai/image/headersimg.png"/>
+    </div>
+    <p class="title">欢迎来到晓悟</p>
+    <div class="inputBox">
+        <input type="text" id="state" th:hidden="true" th:default="*{userInfo.state}"/>
+        <div class="phonebox">
+            <input class="phone" type="text" placeholder="请输入手机号" id="phoneNum" />
+        </div>
+        <div class="verificationbox">
+            <button onclick="getCaptcha()"  id='logon' >获取验证码</button>
+            <input class="verification" type="text" placeholder="请输入验证吗" id="getCaptcha"/>
+        </div>
+    </div>
+    <button   class="logon" onclick="getToken()">登录</button>
+</div>
+</body>
+<style>
+    #logon{
+        font-size: 14px;
+    }
+    .header{
+        text-align: center;
+        width: 100%;
+        margin-top: 30px;
+
+    }
+    input::-webkit-input-placeholder {
+        color: #CCCCCC;
+        /* font-size: 36px; */
+    }
+    .title {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 300 !important;
+    }
+    .inputBox {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .logon {
+        width: 80vw;
+        height: 44px;
+        border: none;
+        background: #FFD400;
+        font-size: 18px;
+        color: #2A2A2A;
+        margin-left: 10vw;
+        text-align: center;
+        line-height: 44px;
+        border-radius: 100px;
+        outline: none;
+        margin-top: 150px;
+    }
+    .phonebox,
+    .verificationbox {
+        width: 80vw;
+        height: 60px;
+        margin-left: 10vw;
+        position: relative;
+        font-size: 16px !important;
+        /* border: 1px solid red; */
+    }
+    .phone,
+    .verification {
+        margin-top: 30px;
+        border: none;
+        width: 99%;
+        border-bottom: 1px solid #CCCCCC;
+        outline: none;
+        padding-bottom: 5px;
+    }
+    .verificationbox button {
+        width: auto;
+        height: 30px;
+        font-size: 16px;
+        border: 1px solid #CCCCCC;
+        border-radius: 100px;
+        position: absolute;
+        right: 0px;
+        background: #fff;
+        top: 18px;
+        color: #dbdbdb;
+        outline: none;
+    }
+</style>
+<script type="text/javascript">
+    function getToken() {
+        var state = document.getElementById("state").value;
+        var phoneNum = document.getElementById("phoneNum").value;
+        var captcha = document.getElementById("getCaptcha").value;
+        // alert("phone:"+phoneNum+",captcha:"+captcha);
+        var ajaxObj = new XMLHttpRequest();
+        //var uri = '/xiaodu/security/token?phoneNumber='+phoneNum+'&captcha='+captcha;
+        ajaxObj.open('get', '/xiaodu/security/token?phoneNumber='+phoneNum+'&captcha='+captcha);
+        ajaxObj.send();
+        ajaxObj.onreadystatechange = function () {
+            if (ajaxObj.readyState === 4 && ajaxObj.status === 200) {
+                if (ajaxObj.responseText === "1") {
+                    // alert(1);
+                    //var redirectUri = "https://xiaodu-dbp.baidu.com/saiya/auth/3428011e7f55ec4c10b2da1b00a1675b?code="+phoneNum;
+                    //var redirectUri = "https://xiaodu.baidu.com/saiya/auth/3428011e7f55ec4c10b2da1b00a1675b?code="+phoneNum;
+                    // var redirectUri = "https://xiaodu-dbp.baidu.com/saiya/auth/15966f1c8158104bd82712f95d8a1150?code="+phoneNum;
+                    var redirectUri = "https://xiaodu-dbp.baidu.com/saiya/auth/3a0610f8af67a3c92d803a80a1c8976c?code="+phoneNum;
+                    if (state !== undefined && state !== null && state !== "") {
+                        redirectUri = redirectUri + "&state"+state;
+                    }
+                    window.location.href = redirectUri;
+                }
+            }
+        }
+    }
+    function getCaptcha() {
+        var oBtn = document.getElementById('logon');
+        var time = 60;
+        var timer = null;
+        oBtn.innerHTML = time + '秒后重新发送';
+        oBtn.setAttribute('disabled', 'disabled');  // 禁用按钮
+        oBtn.setAttribute('class', 'disabled');   // 添加class 按钮样式变灰
+        timer = setInterval(function(){
+            if(time === 1){
+                clearInterval(timer);
+                oBtn.innerHTML = '重新发送';
+                oBtn.removeAttribute('disabled');
+                oBtn.removeAttribute('class');
+            }else{
+                time--;
+                oBtn.innerHTML = time + '秒后重新发送';
+            }
+        }, 1000);
+
+        var phoneNum = document.getElementById("phoneNum").value;
+        var ajaxObj = new XMLHttpRequest();
+        ajaxObj.open('get', '/xiaodu/security/captcha?phoneNumber='+phoneNum);
+        ajaxObj.send();
+        ajaxObj.onreadystatechange = function () {
+            if (ajaxObj.readyState === 4 && ajaxObj.status === 200) {
+
+            }
+        }
+    }
+</script>
+</html>

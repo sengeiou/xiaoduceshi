@@ -1,0 +1,324 @@
+{
+  "type": "DPL",
+  "duration": 120000,
+  "version": "2.0",
+  "renderConfig": {
+    "viewport": {
+      "width": "960",
+      "height": "562"
+    }
+  },
+  "dataSource": {
+    "imgUrl": "http://hw-gz24.heyqiwu.cn/Editor///upload/img/other/2019/11/11181652040.jpeg",
+    "workName": "遇见伽利略",
+    "time": "发表时间： 2020-06-15",
+    "label": "相关标签: 儿童  穿越  科学  历史名人  益智  教育  付费",
+    "author": "作者： 暮星",
+    "intro": "自由落体实验是什么？伽利略是如何论证了日心说？探索科学的道路上又会遇到什么困难？跟随精灵晓悟穿越时空，陪伽利略一起探索科学，对抗权威吧",
+    "id": "enter遇见伽利略",
+    "flowerId": "flowegz5bot563442754",
+    "collect": false,
+    "login": true,
+    "flowText": "已赏朵数:0"
+  },
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Container",
+        "styles": {
+          "flex": 1,
+          "justify-content":"space-between"
+        },
+        "items": [
+          {
+            "type": "Image",
+            "styles": {
+              "position": "absolute",
+              "left": "0dp",
+              "top": "0dp",
+              "scale-type": "centerCrop",
+              "height": "100%",
+              "width": "100%"
+            },
+            "props": {
+              "src": "https://hw-gz25.heyqiwu.cn/duai/image/backNew.jpg"
+            }
+          },
+          {
+            "type": "Header",
+            "props": {
+              "destroy": false
+            },
+            "events": {
+              "onBackTap": [
+                {
+                "type": "SendEvent",
+                "componentId": "backTrigger"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Container",
+            "styles": {
+              "flex": 7,
+              "flex-direction": "row",
+              "justify-content":"space-between"
+            },
+            "items": [
+              {
+                "type": "Image",
+                "styles": {
+                  "flex": 2,
+                  "height": "280dp",
+                  "width": "280dp",
+                  "border-radius": "15dp",
+                  "scale-type": "centerCrop",
+                  "margin-top": "10dp",
+                  "margin-left":"20dp",
+                  "margin-right":"20dp"
+                },
+                "props": {
+                  "src": "${payload.imgUrl}"
+                }
+              },
+              {
+                "type": "Container",
+                "styles": {
+                  "flex": 3,
+                  "margin-right":"20dp"
+                },
+                "items": [
+                  {
+                    "type": "Text",
+                    "props": {
+                      "text": "${payload.workName}"
+                    },
+                    "styles": {
+                      "font-size": "38dp"
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "props": {
+                      "text": "${payload.label}"
+                    },
+                    "styles": {
+                      "font-size": "22dp",
+                      "max-lines": 1,
+                      "text-overflow": "ellipsis",
+                      "margin-top":"10dp"
+                    }
+                  },
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "flex-direction": "row",
+                      "margin-top": "10dp"
+                    },
+                    "items": [
+                      {
+                        "type": "Text",
+                        "props": {
+                          "flex": 1,
+                          "text": "${payload.time}"
+                        },
+                        "styles": {
+                          "font-size": "22dp"
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "props": {
+                          "flex": 1,
+                          "text": "${payload.author}"
+                        },
+                        "styles": {
+                          "font-size": "22dp",
+                          "margin-left":"100dp"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Container",
+                    "styles": {
+                      "padding-vertical": "15dp"
+                    },
+                    "items": [
+                      {
+                        "type": "Text",
+                        "props": {
+                          "text": "${payload.intro}"
+                        },
+                        "styles": {
+                          "font-size": "25dp",
+                          "max-lines": "4",
+                          "text-overflow":"ellipsis"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Container",
+            "styles": {
+              "flex": 2,
+              "flex-direction": "row",
+              "justify-content":"flex-end"
+            },
+            "items": [
+              {
+                "type": "Container",
+                "props": {
+                  "clickTimeout": 2000
+                },
+                "styles": {
+                  "align-items": "center",
+                  "justify-content":"space-between",
+                  "margin-right": "150dp"
+                },
+                "events": {
+                  "onClick": [{
+                    "type": "SendEvent",
+                    "componentId": "${payload.id}"
+                  }]
+                },
+                "items": [
+                  {
+                    "type": "Image",
+                    "props": {
+                      "src": "https://hw-gz25.heyqiwu.cn/duai/image/feel.png"
+                    },
+                    "styles": {
+                      "height": "60dp",
+                      "width": "60dp",
+                      "scale-type": "centerCrop"
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "props": {
+                      "text": "开始体验"
+                    },
+                    "styles": {
+                      "font-size": "20dp"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "Container",
+                "props": {
+                  "clickTimeout": 2000
+                },
+                "styles": {
+                  "align-items": "center",
+                  "justify-content":"space-between",
+                  "margin-right": "150dp"
+                },
+                "events": {
+                  "onClick": [{
+                    "type": "SendEvent",
+                    "componentId": "${payload.flowerId}"
+                  }]
+                },
+                "items":[
+                  {
+                    "type": "Image",
+                    "props": {
+                      "src": "https://hw-gz25.heyqiwu.cn/duai/image/flower.png"
+                    },
+                    "styles": {
+                      "height": "60dp",
+                      "width": "60dp",
+                      "scale-type": "fitXY"
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "props": {
+                      "text": "${payload.flowText}"
+                    },
+                    "styles": {
+                      "font-size": "20dp"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "Container",
+                "props": {
+                  "clickTimeout": 2000
+                },
+                "styles": {
+                  "align-items": "center",
+                  "justify-content":"space-between",
+                  "margin-right": "20dp"
+                },
+                "events": {
+                  "onClick": [
+                    {
+                      "type": "SendEvent",
+                      "componentId": "<%= collect ? 'colleUn' : 'colleCo' %>"
+                    },
+                    {
+                      "type": "UpdateDataSource",
+                      "dWhen": "<%= login === true %>",
+                      "data": {
+                        "collect": "<%= collect ? false : true %>"
+                      }
+                    }
+                  ]
+                },
+                "items": [
+                  {
+                    "type": "Image",
+                    "props": {
+                      "src": "<%= collect ? 'https://hw-gz25.heyqiwu.cn/duai/image/collec.png' : 'https://hw-gz25.heyqiwu.cn/duai/image/uncollec.png' %>"
+                    },
+                    "styles": {
+                      "height": "60dp",
+                      "width": "60dp",
+                      "scale-type": "centerCrop"
+                    }
+                  },
+                  {
+                    "type": "Text",
+                    "props": {
+                      "text": "<%= collect ? '已收藏' : '未收藏' %>"
+                    },
+                    "styles": {
+                      "font-size": "20dp"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type":"Footer",
+            "styles": {
+              "width":"100%"
+            },
+            "props": {
+              "hint":[
+                "开始",
+                "我要送花",
+                "收藏作品",
+                "回到首页",
+                "返回"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

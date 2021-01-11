@@ -1,0 +1,62 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Image",
+        "height": "100%",
+        "width": "100%",
+        "position": "absolute",
+        "left": "0dp",
+        "top": "0dp",
+        "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/backend.jpg"
+      },
+      {
+        "type": "Container",
+        "width": "100%",
+        "height": "100%",
+        "items": [
+          {
+            "type": "Pager",
+            "direction": "horizontal",
+            "componentId": "funnyPage",
+            "width": "100%",
+            "height": "100%",
+            "onLoaded": [
+              {
+                "type": "AutoPage",
+                "componentId": "funnyPage",
+                "durationInMillisecond": 3000
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Audio",
+        "componentId": "audioCom",
+        "looping": "false",
+        "autoplay": "true"
+      },
+      {
+        "type": "Container",
+        "position": "absolute",
+        "width": "100%",
+        "left": "0",
+        "bottom": "0",
+        "items": [
+          {
+            "type": "Footer",
+            "hints": [
+              "返回/回到首页","可左右滑动"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

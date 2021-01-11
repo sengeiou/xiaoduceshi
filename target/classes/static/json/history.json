@@ -1,0 +1,99 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Image",
+        "position": "absolute",
+        "top": "0dp",
+        "left": "0dp",
+        "height": "100%",
+        "width": "100%",
+        "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/backend.jpg"
+      },
+      {
+        "type": "Header",
+        "headerImage": "https://skillstore.cdn.bcebos.com/icon/23/fc7581b7-b505-1f44-ab52-3d9f5e567dfd.png",
+        "headerTitle": "历史"
+      },
+      {
+        "type": "Container",
+        "margin": "10dp",
+        "height": "100%",
+        "width": "100%",
+        "items": [
+          {
+            "type": "List",
+            "height": "100%",
+            "width": "100%",
+            "direction": "vertical",
+            "items": [
+              {
+                "type": "Container",
+                "height": "100dp",
+                "width": "100%",
+                "flex-direction": "row",
+                "componentId": "${data.botAccountId}",
+                "onclick": [
+                  {
+                    "type": "SendEvent",
+                    "componentId": "${data.botAccountId}"
+                  }
+                ],
+                "items": [
+                  {
+                    "type": "Text",
+                    "font-size": "40dp",
+                    "margin-left": "40dp",
+                    "margin-top": "7dp",
+                    "text": "${data.collectPageLeftNum}"
+                  },
+                  {
+                    "type": "Image",
+                    "width": "20%",
+                    "height": "75dp",
+                    "border-radius": "5%",
+                    "margin-left": "1dp",
+                    "src": "${data.bannerImgUrl}"
+                  },
+                  {
+                    "type": "Container",
+                    "height": "75dp",
+                    "width": "45%",
+                    "flex-direction": "column",
+                    "margin-left": "20dp",
+                    "items": [
+                      {
+                        "type": "Text",
+                        "font-size": "30dp",
+                        "text": "${data.name}"
+                      },
+                      {
+                        "type": "Text",
+                        "font-size": "20dp",
+                        "margin-top": "8dp",
+                        "text": "${data.intro}",
+                        "text-overflow": "ellipsis",
+                        "max-lines": 1
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Text",
+                    "margin-left": "40dp",
+                    "font-size": "20dp",
+                    "text": "${data.lastTime}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

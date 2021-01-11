@@ -1,0 +1,28 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Image",
+        "position": "absolute",
+        "componentId": "loadingPage",
+        "top": "0dp",
+        "left": "0dp",
+        "src": "https://hw-gz25.heyqiwu.cn/duai/image/LoadNew.jpg",
+        "height": "100%",
+        "width": "100%",
+        "scale-type": "fitXY",
+        "onLoaded": [
+          {
+            "type": "SendEvent",
+            "componentId": "loadingPage"
+          }
+        ]
+      }
+    ]
+  }
+}

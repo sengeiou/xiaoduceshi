@@ -1,0 +1,260 @@
+{
+  "type": "DPL",
+  "version": "1.0",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Image",
+        "position": "absolute",
+        "top": "0dp",
+        "left": "0dp",
+        "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/backend.jpg",
+        "height": "100%",
+        "width": "100%"
+      },
+      {
+        "type": "Header",
+        "headerImage": "https://aliyun-hz1.chewrobot.com/xiaodu/image/5b2d0a11/lvzhou/15640330891628686.jpg",
+        "headerTitle": "交游天下",
+        "hasBackIcon": false
+      },
+      {
+        "type": "ScrollView",
+        "direction": "vertical",
+        "height": "100%",
+        "width": "100%",
+        "componentId": "scrollCom",
+        "items": [
+          {
+            "type": "Container",
+            "height": "250dp",
+            "width": "100%",
+            "margin-bottom": "20dp",
+            "items": [
+              {
+                "type": "List",
+                "height": "250dp",
+                "margin-left": "15dp",
+                "width": "100%",
+                "direction": "horizontal",
+                "items": [
+                  {
+                    "type": "Container",
+                    "height":"200dp",
+                    "width":"200dp",
+                    "margin-left": "15dp",
+                    "items": [
+                      {
+                        "type": "Image",
+                        "componentId": "${data.imageId}",
+                        "width": "180dp",
+                        "height": "180dp",
+                        "margin-left": "7dp",
+                        "margin-top": "7dp",
+                        "position": "absolute",
+                        "border-radius": "15dp",
+                        "src": "${data.imageSrc}",
+                        "scale-type": "fitXY",
+                        "onClick": [
+                          {
+                            "type": "SendEvent",
+                            "componentId": "${data.imageId}"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Frame",
+                        "width": "35dp",
+                        "height": "35dp",
+                        "background-color": "rgb(0,0,0)",
+                        "border-radius": "10dp",
+                        "items": [
+                          {
+                            "type": "Container",
+                            "width": "100%",
+                            "height": "100%",
+                            "align-items":"center",
+                            "items": [
+                              {
+                                "type": "Text",
+                                "text": "${data.num}",
+                                "font-size": "22dp"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Text",
+                        "font-size": "24dp",
+                        "margin-top": "159dp",
+                        "margin-left": "7dp",
+                        "text": "${data.imageName}"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Container",
+            "height": "250dp",
+            "width": "100%",
+            "margin-top": "50dp",
+            "margin-bottom": "20dp",
+            "items": [
+              {
+                "type": "List",
+                "height": "100%",
+                "width": "100%",
+                "margin-left": "15dp",
+                "direction": "horizontal",
+                "items": [
+                  {
+                    "type": "Container",
+                    "margin-left": "15dp",
+                    "height":"200dp",
+                    "width":"200dp",
+                    "items": [
+                      {
+                        "type": "Image",
+                        "componentId": "${data.imageId}",
+                        "width": "180dp",
+                        "height": "180dp",
+                        "margin-left": "7dp",
+                        "margin-top": "7dp",
+                        "position": "absolute",
+                        "border-radius": "15dp",
+                        "src": "${data.imageSrc}",
+                        "scale-type": "fitXY",
+                        "onClick": [
+                          {
+                            "type": "SendEvent",
+                            "componentId": "${data.imageId}"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Frame",
+                        "width": "35dp",
+                        "height": "35dp",
+                        "background-color": "rgb(0,0,0)",
+                        "border-radius": "10dp",
+                        "items": [
+                          {
+                            "type": "Container",
+                            "width": "100%",
+                            "height": "100%",
+                            "align-items":"center",
+                            "items": [
+                              {
+                                "type": "Text",
+                                "text": "${data.num}",
+                                "font-size": "22dp"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Text",
+                        "font-size": "28dp",
+                        "margin-left": "7dp",
+                        "margin-top": "157dp",
+                        "text": "${data.imageName}"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Container",
+            "height": "250dp",
+            "width": "100%",
+            "margin-top": "50dp",
+            "margin-bottom": "70dp",
+            "items": [
+              {
+                "type": "List",
+                "height": "100%",
+                "width": "100%",
+                "margin-left": "15dp",
+                "direction": "horizontal",
+                "items": [
+                  {
+                    "type": "Container",
+                    "margin-left": "15dp",
+                    "height":"200dp",
+                    "width":"200dp",
+                    "items": [
+                      {
+                        "type": "Image",
+                        "componentId": "${data.imageId}",
+                        "width": "160dp",
+                        "height": "160dp",
+                        "margin-left": "7dp",
+                        "margin-top": "7dp",
+                        "position": "absolute",
+                        "border-radius": "15dp",
+                        "src": "${data.imageSrc}",
+                        "scale-type": "fitXY",
+                        "onClick": [
+                          {
+                            "type": "SendEvent",
+                            "componentId": "${data.imageId}"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Frame",
+                        "width": "35dp",
+                        "height": "35dp",
+                        "background-color": "rgb(0,0,0)",
+                        "border-radius": "10dp",
+                        "items": [
+                          {
+                            "type": "Container",
+                            "width": "100%",
+                            "height": "100%",
+                            "align-items":"center",
+                            "items": [
+                              {
+                                "type": "Text",
+                                "text-overflow": "ellipsis",
+                                "max-lines": 1,
+                                "text": "${data.num}",
+                                "font-size": "22dp"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Text",
+                        "font-size": "28dp",
+                        "margin-left": "7dp",
+                        "margin-top": "137dp",
+                        "text": "${data.imageName}"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Container",
+            "height": "80dp",
+            "width": "100%"
+          }
+        ]
+      }
+    ]
+  }
+}

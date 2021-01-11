@@ -1,0 +1,94 @@
+{
+  "type": "Container",
+  "margin-top": "40dp",
+  "width": "100%",
+  "height": "100%",
+  "items": [
+    {
+      "type": "Container",
+      "flex-direction": "row",
+      "items": [
+        {
+          "type": "Image",
+          "margin-top": "30dp",
+          "height": "300dp",
+          "width": "300dp",
+          "scale-type": "fitXY",
+          "border-radius": "18dp",
+          "margin-left": "25dp",
+          "src": "${data.imgSrc}",
+          "componentId": "funnyImage",
+          "onClick": [
+            {
+              "type": "SendEvent"
+            },
+            {
+              "type": "Animation",
+              "componentId": "funnyImage",
+              "from": 1,
+              "to": 0.6,
+              "easing": "ease-out",
+              "attribute": "scaleX",
+              "duration": 1500,
+              "repeatCount": "1"
+            },
+            {
+              "type": "Animation",
+              "componentId": "funnyImage",
+              "from": 1,
+              "to": 0.6,
+              "easing": "ease-out",
+              "attribute": "scaleY",
+              "duration": 1500,
+              "repeatCount": "1"
+            }
+          ]
+        },
+        {
+          "type": "Container",
+          "margin-left": "20dp",
+          "width": "500dp",
+          "height": "100%",
+          "items": [
+            {
+              "type": "Text",
+              "text": "${data.head}",
+              "font-size": "35dp",
+              "line-height":"60dp",
+              "margin-top": "30dp",
+              "margin-left": "10dp"
+            },
+            {
+              "type": "Text",
+              "text": "${data.text}",
+              "font-size": "25dp",
+              "line-height":"60dp",
+              "margin-top": "30dp",
+              "margin-left": "10dp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Frame",
+      "width": "300dp",
+      "height": "50dp",
+      "margin-top": "15dp",
+      "margin-left": "25dp",
+      "border-width": "1dp",
+      "border-radius": "20dp",
+      "padding-vertical": "6dp",
+      "padding-horizontal": "60dp",
+      "border-color": "rgb(255,255,255)",
+      "items": [
+        {
+          "type": "Text",
+          "font-size": "20dp",
+          "text": "点击图片查看详情",
+          "color": "rgb(255,255,255)"
+        }
+      ]
+    }
+  ]
+}

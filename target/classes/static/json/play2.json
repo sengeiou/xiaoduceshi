@@ -1,0 +1,202 @@
+{
+  "type": "DPL",
+  "duration": 0,
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": [
+      {
+        "type": "Image",
+        "position": "absolute",
+        "left": "0dp",
+        "top": "0dp",
+        "src": "https://aliyun-hz1.chewrobot.com/xiaoduhome/image/backend.jpg",
+        "height": "100%",
+        "width": "100%"
+      },
+      {
+        "type": "Header",
+        "headerTitle": "末世降临",
+        "hasBackIcon": false
+      },
+      {
+        "type":"Image",
+        "position":"absolute",
+        "src":"https://aliyun-hz1.chewrobot.com/xiaoduhome/image/logo.png",
+        "width":"200dp",
+        "height":"60dp",
+        "top":"10dp",
+        "right":"10dp"
+      },
+
+      {
+        "type":"Container",
+        "position":"absolute",
+        "left":"130dp",
+        "top":"135dp",
+
+        "items":[
+          {
+            "type":"Frame",
+
+            "padding-left":"50dp",
+            "padding-right":"15dp",
+            "padding-vertical":"10dp",
+            "border-radius":"10dp",
+            "background-color":"rgba(0,0,0,0.4)",
+            "items":[
+              {
+                "type":"Text",
+                "text":"末世降临",
+
+                "height":"50dp",
+                "scale-type":"fitCenter"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type":"Container",
+        "position":"absolute",
+        "left":"60dp",
+        "top":"120dp",
+
+        "items":[
+          {
+            "type":"Frame",
+            "width":"100dp",
+            "height":"100dp",
+
+            "border-radius":"50dp",
+
+            "items":[
+              {
+                "type":"Image",
+                "src":"https://aliyun-hz1.chewrobot.com/upload/img/other/2019/07/08160205349.png",
+                "width":"100dp",
+                "height":"100dp",
+                "scale-type":"fitCenter"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Container",
+        "height": "100%",
+        "width": "100%",
+        "componentId": "whole",
+        "items": [
+          {
+            "type": "Container",
+            "position": "absolute",
+            "items": [
+              {
+                "type": "Text",
+                "componentId": "text",
+                "text": "欢迎来到末世降临,请说继续剧情或者重新开始 ",
+                "font-size": "28dp",
+                "font-style": "normal"
+              }
+            ],
+            "top": "140dp",
+            "left":"22dp",
+            "padding": "35dp"
+          },
+          {
+            "type": "Audio",
+            "src": "http://aws-nx2.chewrobot.com:9663/api/tts/get_audio?dirs=%5B6035298742%2Cxiaoai%5D&filename=57134b89a5b9ae85d9d815c6269a2d8c.mp3",
+            "componentId": "audioCom",
+            "looping": "false",
+            "autoplay": "true",
+            "onEnd": [
+              {
+                "type": "SendEvent",
+                "componentId": "audio"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type":"Container",
+        "position":"absolute",
+        "left":"600dp",
+        "top":"380dp",
+
+        "items":[
+          {
+            "type":"Frame",
+            "width":"120dp",
+            "height":"120dp",
+            "padding-top":"20dp",
+
+            "border-radius":"60dp",
+            "background-color":"rgba(0,0,0,0.4)",
+            "items":[
+              {
+                "type":"Image",
+                "src":"https://aliyun-hz1.chewrobot.com/xiaoduhome/image/flower.png",
+                "width":"50dp",
+                "height":"50dp",
+                "margin-left":"35dp",
+                "scale-type":"fitCenter"
+              },
+              {
+                "type":"Text",
+                "margin-left":"22dp",
+                "text":"鲜花打赏",
+                "font-size":"20dp"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type":"Container",
+        "position":"absolute",
+        "left":"300dp",
+        "top":"380dp",
+
+        "items":[
+          {
+            "type":"Frame",
+            "width":"120dp",
+            "height":"120dp",
+            "padding-top":"20dp",
+
+            "border-radius":"60dp",
+            "background-color":"rgba(0,0,0,0.4)",
+            "items":[
+              {
+                "type":"Image",
+                "src":"https://aliyun-hz1.chewrobot.com/xiaoduhome/image/collec.png",
+                "width":"50dp",
+                "height":"50dp",
+                "margin-left":"35dp",
+                "scale-type":"fitCenter"
+              },
+              {
+                "type":"Text",
+                "margin-left":"22dp",
+                "text":"收藏作品",
+                "font-size":"20dp"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Footer",
+        "hints": [
+          "我要送花",
+          "收藏",
+          "回到首页",
+          "返回"
+        ]
+      }
+    ]
+  }
+}

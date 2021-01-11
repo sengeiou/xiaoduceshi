@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>文件下载</title>
+    <script type="text/javascript">
+
+        function uploadImage() {
+            // var imageExtend = document.getElementById("imageExtend").value;
+            // var storyName = document.getElementById("storyName").value;
+            // var fileObj = document.querySelector("#smallFile").files[0];
+            // var formData = new FormData();
+            // formData.append("npcId", 15284);
+            // formData.append("projectId", 823);
+            // formData.append("mood", "正常");
+            var ajaxObj = new XMLHttpRequest();
+            ajaxObj.open('POST', 'http://didi-gz5.jiaoyou365.com:19082/text/offline/csv', true);
+            ajaxObj.setRequestHeader('Content-type', 'application/json');
+            ajaxObj.responseType = "blob";
+            var data = JSON.stringify({"npcId": 15985,"projectId":1358});
+            ajaxObj.onload = function (oEvent) {
+                if((ajaxObj.status >= 200 && ajaxObj.status < 300) || ajaxObj.status === 304) {
+                    var filename = ajaxObj.getResponseHeader("Content-Disposition").split(";")[1].split("filename=")[1];
+                    filename = decodeURI(filename, "utf-8");
+                    if(!filename || filename === 'null') {
+                        filename = "temp.csv";
+                    } else {
+                        filename = filename.substring(1, filename.length-1);
+                    }
+                    console.log(filename);
+                    var content = ajaxObj.response;
+                    var elink = document.createElement('a');
+                    elink.download = filename;
+                    elink.style.display = 'none';
+                    var blob = new Blob([content]);
+                    elink.href = URL.createObjectURL(blob);
+                    document.body.appendChild(elink);
+                    elink.click();
+                    document.body.removeChild(elink);
+                } else {
+                    console.assert("下载失败");
+                }
+            };
+            ajaxObj.send(data);
+        }
+    </script>
+</head>
+<body>
+    <!--<p class="introl">图片,填写图片名,选择图片类型.注：图片名要唯一</p>-->
+    <!--<input type="text" id="storyName" th:placeholder="请填写作品名-拼音" th:value="${storyName}">-->
+    <!--<select id="imageExtend" th:value="${imageExtend}">-->
+        <!--<option value="jpg">jpg</option>-->
+        <!--<option value="png">png</option>-->
+    <!--</select><br>-->
+    <!--<input type="file" id="smallFile" accept="image/gif,image/jpeg,image/jpg,image/png"><br>-->
+    <input type="button" onclick="uploadImage()" value="上传图"/>
+</body>
+</html>
