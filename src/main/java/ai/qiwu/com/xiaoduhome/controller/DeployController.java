@@ -26,6 +26,6 @@ public class DeployController {
     }
     @PostMapping("/chat") //交游天下
     public String chat() {
-        return "null";
+        return "nuaa";
     }
 }
